@@ -1,27 +1,22 @@
-# Ember-cordova-storage
+# ember-cordova-storage
 
-This README outlines the details of collaborating on this Ember addon.
+Reads and writes appSettings with the most persistent and secure available
+option in a promise-based manner.
+
+In cordova-application it uses `cordova-plugin-nativestorage` to save data in
+the platform-offered setting key/value-stores. In the browser it just stores
+data in localStorage.
+
+Do NOT use this if you wish to store huge amounts of data. Querying data isn't
+supported. This service is particulary targeted against user-settings you wish
+to carry over restarts/updates and not caching in general.
+
+## Prerequisite
+
+Although this does not rely on cordova at runtime and works fine in the browser,
+the add-on assumes you are building your application with
+[ember-cordova](https://github.com/isleofcode/ember-cordova).
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-cordova-storage`
-* `npm install`
-* `bower install`
-
-## Running
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-## Running Tests
-
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+* `ember install ember-cordova-storage`
