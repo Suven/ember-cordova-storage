@@ -23,7 +23,47 @@ the add-on assumes you are building your application with
 
 ## Usage
 
-TODO
+Just inject the service and you are ready to start:
+
+```
+export default Ember.Route.extend({
+  storage: Ember.inject.service('cordova/storage'),
+
+  setupController() {
+    this.get('storage')
+      .write('pogchamp', Date.now())
+      .then(() => this.get('storage').read('pogchamp'))
+      .then((val) => Ember.debug(`Read ${val} for key pogchamp. That was ${Date.now() - val}ms ago`))
+      .catch(console.log);
+  }
+});
+```
+
+#### write(key, value)
+
+Writes a given `value` to a `key` and returns the written value as soon as writing
+finished via a `Promise`.
+
+You are free to store strings, ints, objects, booleans, arrays and so on. But be
+aware that some object-attributes might get missing as the actually stored value
+will `JSON.strinfify`ed.
+
+#### read(key, legacy = false)
+
+Reads a given `key` (always a string) and returns its value inside a `Promise`.
+
+With `legacy` you can toggle if you always wish to use localStorage, even if
+nativeStorage would be available.
+
+If a key did not yet exist, this will return `null`.
+
+#### clear()
+
+Removes all keys from the storage. Like.. all of them.. Forever.. No turning back.
+
+#### remove(key)
+
+Removes the given `key` from the storage.
 
 ## Thanks
 
