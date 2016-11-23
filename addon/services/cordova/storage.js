@@ -90,7 +90,7 @@ export default Ember.Service.extend({
     }
 
     return new Promise((resolve, reject) => {
-      window.NativeStorage.setItem(key, value, resolve(value), reject);
+      window.NativeStorage.setItem(key, value, resolve, reject);
     });
   },
 
