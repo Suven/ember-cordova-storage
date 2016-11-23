@@ -1,6 +1,6 @@
 {
   "name": "ember-cordova-storage",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.2",
   "description": "Read and write data as persistent as possible (localStorage/nativeStorage)",
   "directories": {
     "doc": "doc",
