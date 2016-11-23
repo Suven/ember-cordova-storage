@@ -20,3 +20,11 @@ the add-on assumes you are building your application with
 ## Installation
 
 * `ember install ember-cordova-storage`
+
+## Usage
+
+TODO
+
+## Thanks
+
+Some parts of this plugin do use code from [ember-cordova-keyboard](https://github.com/isleofcode/ember-cordova-keyboard).
