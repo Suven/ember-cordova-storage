@@ -61,9 +61,12 @@ If a key did not yet exist, this will return `null`.
 
 Removes all keys from the storage. Like.. all of them.. Forever.. No turning back.
 
-#### remove(key)
+#### remove(key, legacy = false)
 
 Removes the given `key` from the storage.
+
+With `legacy` you can toggle if you always wish to clear in localStorage, even if
+nativeStorage would be available.
 
 ## Thanks
 

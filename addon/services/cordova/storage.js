@@ -101,8 +101,8 @@ export default Ember.Service.extend({
    * @public
    * @param {String} key
    */
-  remove(key) {
-    if (!this.get('nativeStorageAvailable')) {
+  remove(key, legacy) {
+    if (legacy || !this.get('nativeStorageAvailable')) {
       window.localStorage.removeItem(key);
       return;
     }
