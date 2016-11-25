@@ -35,7 +35,7 @@ export default Ember.Service.extend({
    */
   init() {
     this._super(...arguments);
-    this.set('nativeStorageAvailable', window.cordova && window.NativeStorage && window.NativeStorage.setItem && window.NativeStorage.getItem);
+    this.set('nativeStorageAvailable', window.cordova && window.NativeStorage && true);
   },
 
   /**
