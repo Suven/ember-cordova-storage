@@ -7,9 +7,15 @@ In cordova-application it uses `cordova-plugin-nativestorage` to save data in
 the platform-offered setting key/value-stores. In the browser it just stores
 data in localStorage.
 
-Do NOT use this if you wish to store huge amounts of data. Querying data isn't
+## Things you need to be aware of
+
+Do **NOT** use this if you wish to store huge amounts of data. Querying data isn't
 supported. This service is particulary targeted against user-settings you wish
 to carry over restarts/updates and not caching in general.
+
+Also make sure you are **not** using the service before `deviceReady`, or else
+you will end up using localStorage only (since that is the only thing available)
+before `deviceReady`.
 
 ## Prerequisite
 
