@@ -63,7 +63,7 @@ export default Ember.Service.extend({
       window.NativeStorage.getItem(key, resolve, (error) => {
 
         // To align the behaviour with localStorage
-        if (error.code === window.NativeStorage.NATIVE_WRITE_FAILED) {
+        if (error.code === 2) {
           return resolve(null);
         }
 
