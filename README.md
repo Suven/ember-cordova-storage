@@ -61,6 +61,10 @@ Reads a given `key` (always a string) and returns its value inside a `Promise`.
 With `legacy` you can toggle if you always wish to use localStorage, even if
 nativeStorage would be available.
 
+If `legacy` is set, the value will also be returned as is and not tried to be
+`JSON.parse`ed. This is because we can not safely make the assumption that legacy
+values were `JSON.strinfify`ed in the first place.
+
 If a key did not yet exist, this will return `null`.
 
 #### clear()

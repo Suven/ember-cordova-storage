@@ -55,8 +55,21 @@ export default Ember.Service.extend({
    * @return {Promise} promise
    */
   read(key, legacy) {
-    if (legacy || !this.get('nativeStorageAvailable')) {
-      return Promise.resolve(JSON.parse(window.localStorage.getItem(key)));
+    if (legacy) {
+      return Promise.resolve(window.localStorage.getItem(key));
+    }
+
+    if (!this.get('nativeStorageAvailable')) {
+      let value = null;
+
+      try {
+        value = JSON.parse(window.localStorage.getItem(key));
+      } catch (e) {
+        Ember.debug(`SyntaxError when parsing ${key} whichs value is ${window.localStorage.getItem(key)}. Falling back to raw data.`);
+        value = window.localStorage.getItem(key);
+      }
+
+      return Promise.resolve(value);
     }
 
     return new Promise((resolve, reject) => {
