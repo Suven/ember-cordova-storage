@@ -35,7 +35,8 @@ export default Ember.Service.extend({
    */
   init() {
     this._super(...arguments);
-    this.set('nativeStorageAvailable', window.cordova && window.NativeStorage && true);
+    let isWindows = window.device && window.device.platform === 'windows';
+    this.set('nativeStorageAvailable', window.cordova && !isWindows && window.NativeStorage && true);
   },
 
   /**
