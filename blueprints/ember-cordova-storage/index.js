@@ -14,6 +14,6 @@ module.exports = {
       throw new Error("ember-cordova-storage requires ember-cordova.");
     }
 
-    return awaitCommand('ember cdv plugin add cordova-plugin-nativestorage --save');
+    return awaitCommand('ember cdv:plugin add cordova-plugin-nativestorage --save');
   }
 };
