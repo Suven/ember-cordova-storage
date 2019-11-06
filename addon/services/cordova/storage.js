@@ -1,6 +1,6 @@
-import Ember from 'ember';
-
-const { RSVP } = Ember;
+import { debug } from '@ember/debug';
+import Service from '@ember/service';
+import RSVP from 'rsvp';
 const { Promise } = RSVP;
 
 /**
@@ -18,7 +18,7 @@ const { Promise } = RSVP;
  * @public
  * @extends Ember.Service
  */
-export default Ember.Service.extend({
+export default Service.extend({
 
   /**
    * Indicates whether or not native storage is available.
@@ -66,7 +66,7 @@ export default Ember.Service.extend({
       try {
         value = JSON.parse(window.localStorage.getItem(key));
       } catch (e) {
-        Ember.debug(`SyntaxError when parsing ${key} whichs value is ${window.localStorage.getItem(key)}. Falling back to raw data.`);
+        debug(`SyntaxError when parsing ${key} whichs value is ${window.localStorage.getItem(key)}. Falling back to raw data.`);
         value = window.localStorage.getItem(key);
       }
 
